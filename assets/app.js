@@ -1,8 +1,7 @@
 $(document).ready(function(){
 
     var animalarray = ["cat", "dog", "bird", "fish", "crab", "falcon", "bat", "zebra", "horse", "sheep", "cow", "donkey", "rhino"];
-   // var button = $("<button type='button' class='btn btn-dark'>");
-
+   
     buttonrun();
 
     function buttonrun() {
@@ -33,7 +32,7 @@ $(document).ready(function(){
         $(".gifs").empty();
         var topic = $(this).val();       
         var key = 'kgTj93hZlAWO49nWmnAqGsfHU2TN3xMw';
-        var queryurl = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=" + key + "&limit=10" ;
+        var queryurl = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=" + key + "&limit=10" ;
     
         $.ajax({
             url: queryurl,
