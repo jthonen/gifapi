@@ -53,6 +53,7 @@ $(document).ready(function(){
                 $(giftag).addClass('gif');
                 $(".gifs").append(giftag);
 
+                
             };
         });
     })
