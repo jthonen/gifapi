@@ -23,8 +23,8 @@ $(document).ready(function(){
             var value = $(".form-control").val();
             console.log(value);
             animalarray.push(value);
-            buttonrun();
             $(".form-control").val('');
+            $(".buttons").append("<button type='button' class='btn btn-dark animal-button' value="+value+">"+value+"</button>");
         };
     });
 
