@@ -43,12 +43,18 @@ $(document).ready(function(){
             url: queryurl,
             method: "GET"
         }).then(function(response) {
-            var imagUrl = response.daata.image_original_url;
-            var image = $("<img>")
-            image.attr("src", imageUrl);
-            image.attr("alt", "animal image");
+            console.log(response.data)
+            console.log(response.data[0].embed_url);
+            var giflist = response.data;
+
+            for (var i = 0 ; i < giflist.length ; i++) {
+                console.log(giflist[i].id);
+
+            }
             
-            $(".gifs").append()
+            
+            
+           
         })
     })
     
