@@ -9,7 +9,9 @@ $(document).ready(function(){
             for ( i = 0; i < animalarray.length; i++ ) {
                 $(".buttons").append("<button type='button' class='btn btn-dark animal-button' value="+animalarray[i]+">" + animalarray[i] + "</button>")
                 console.log(animalarray[i]);
+                
         };
+        animalclick();
     };
 
     $(".submit").on("click", function(event) {
@@ -24,52 +26,55 @@ $(document).ready(function(){
             console.log(value);
             animalarray.push(value);
             $(".form-control").val('');
-            $(".buttons").append("<button type='button' class='btn btn-dark animal-button' value="+value+">"+value+"</button>");
+            buttonrun();
+            
         };
     });
 
-    $(".animal-button").on('click', function(){
-        $(".gifs").empty();
-        var topic = $(this).val();       
-        var key = 'kgTj93hZlAWO49nWmnAqGsfHU2TN3xMw';
-        var queryurl = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=" + key + "&limit=10" ;
-    
-        $.ajax({
-            url: queryurl,
-            method: "GET"
-        }).then(function(response) {
-            console.log(response.data)
-            console.log(response.data[0].embed_url);
-            var giflist = response.data;
-            
-            for (var i = 0 ; i < giflist.length ; i++) {
+    function animalclick() {
+        $(".animal-button").on('click', function(){
+            $(".gifs").empty();
+            var topic = $(this).val();       
+            var key = 'kgTj93hZlAWO49nWmnAqGsfHU2TN3xMw';
+            var queryurl = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=" + key + "&limit=10" ;
+        
+            $.ajax({
+                url: queryurl,
+                method: "GET"
+            }).then(function(response) {
+                console.log(response.data)
+                console.log(response.data[0].embed_url);
+                var giflist = response.data;
                 
-                var gif = giflist[i].images.fixed_height_still.url;
-                var gifstill = giflist[i].images.fixed_height_still.url;
-                var gifmove = giflist[i].images.fixed_height.url;
-                var giftag = $("<img src=" + gif + " data-still=" + gifstill + " data-animate=" + gifmove + " data-state='still'>");
-                
-                $(giftag).addClass('animal-gif');
-                $(".gifs").append(giftag);
+                for (var i = 0 ; i < giflist.length ; i++) {
+                    
+                    var gif = giflist[i].images.fixed_height_still.url;
+                    var gifstill = giflist[i].images.fixed_height_still.url;
+                    var gifmove = giflist[i].images.fixed_height.url;
+                    var giftag = $("<img src=" + gif + " data-still=" + gifstill + " data-animate=" + gifmove + " data-state='still'>");
+                    
+                    $(giftag).addClass('animal-gif');
+                    $(".gifs").append(giftag);
 
-            };
+                };
 
-            $(".animal-gif").on('click', function() {
-                var state = $(this).attr('data-state');
-                console.log(state);
+                $(".animal-gif").on('click', function() {
+                    var state = $(this).attr('data-state');
+                    console.log(state);
 
-                if ( state === 'still') {
-                    console.log('is still');
-                    $(this).attr('src', $(this).attr('data-animate'));
-                    $(this).attr('data-state', 'animate');
-                }
-                else {
-                    console.log('is not still');
-                    $(this).attr('src', $(this).attr('data-still'));
-                    $(this).attr('data-state', 'still');
-                }
-            })
+                    if ( state === 'still') {
+                        console.log('is still');
+                        $(this).attr('src', $(this).attr('data-animate'));
+                        $(this).attr('data-state', 'animate');
+                    }
+                    else {
+                        console.log('is not still');
+                        $(this).attr('src', $(this).attr('data-still'));
+                        $(this).attr('data-state', 'still');
+                    }
+                })
 
-        });
-    })
+            });
+        })
+    }
 });
