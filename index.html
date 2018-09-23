@@ -5,22 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <title>TastyGifs</title>
 </head>
 <body>
     <div class="row">
-        <div class="buttons col-md-10"></div>
+        <div class="buttons col-md-8"></div>
+        <div class="col-md-4 add-button">
+            <h5>Add New Animal</h5>
+            <input id="newanimal" class="form-control" type="text" placeholder="Enter Any Animal You Like!">
+            <button type="submit" class="submit btn btn-dark mb-2">Add It!</button>
+        </div>
     </div>
     <br>
     <div class="row">
-        <div class="col-md-8 gifs"></div>
-        <div class="col-md-4 add-button">
-            <h4>Add New Animal</h4>
-            <br>
-            <input id="newanimal" class="form-control" type="text" placeholder="Enter Any Animal You Like!">
-            <br>
-            <button type="submit" class="submit btn btn-dark mb-2">Add It!</button>
-        </div>
+        <div class="col-md-10 gifs"></div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -44,14 +44,16 @@ $(document).ready(function(){
             }).then(function(response) {
                 console.log(response.data)
                 console.log(response.data[0].embed_url);
+                console.log(response.data[0].rating);
                 var giflist = response.data;
                 
                 for (var i = 0 ; i < giflist.length ; i++) {
                     
                     var gif = giflist[i].images.fixed_height_still.url;
+                    var rating = giflist[i].rating;
                     var gifstill = giflist[i].images.fixed_height_still.url;
                     var gifmove = giflist[i].images.fixed_height.url;
-                    var giftag = $("<img src=" + gif + " data-still=" + gifstill + " data-animate=" + gifmove + " data-state='still'>");
+                    var giftag = $("<img style= src=" + gif + " data-still=" + gifstill + " data-animate=" + gifmove + " data-state='still'>"+"<p>Rating: "+rating+"</p>");
                     
                     $(giftag).addClass('animal-gif');
                     $(".gifs").append(giftag);
