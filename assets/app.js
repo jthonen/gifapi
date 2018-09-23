@@ -53,7 +53,7 @@ $(document).ready(function(){
                     var rating = giflist[i].rating;
                     var gifstill = giflist[i].images.fixed_height_still.url;
                     var gifmove = giflist[i].images.fixed_height.url;
-                    var giftag = $("<img style= src=" + gif + " data-still=" + gifstill + " data-animate=" + gifmove + " data-state='still'>"+"<p>Rating: "+rating+"</p>");
+                    var giftag = $("<img src=" + gif + " data-still=" + gifstill + " data-animate=" + gifmove + " data-state='still'>"+"<p>Rating: "+rating+"</p>");
                     
                     $(giftag).addClass('animal-gif');
                     $(".gifs").append(giftag);
